@@ -31,24 +31,28 @@
                         </span>
                     </div>
                 </form>
-                {% for city_weather in data %}
-                    <div class="shadow media">
-                        <div class="media-left">
-                            <a href="#">
-                                <img src="https://openweathermap.org/img/w/{{city_weather.icon}}.png" class="media-object" alt="Weather">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h3 class="media-heading"><b>{{city_weather.city.name}}</b></h3>
-                            <h4>{{city_weather.temperature}}&deg;C</h4>
-                            <h4>{{city_weather.description}}</h4>
-                            <h4>{{city_weather.country}}</h4>
-                        </div>
-                        <div class="media-right">
-                            <h3><a href="{% url 'delete_city' city_weather.city %}"class="text-danger">&#x2718;</a></h3>
+                {% if data %}
+                    {% for city_weather in data %}
+                    <div class=col-md-4 col-mb-3>
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <h5 class="card-title">{{city_weather.city}},{{city_weather.country}}</h5>
+                                <p class="card-text">
+                                    <strong>Temperature:</strong>{{city_weather.temperature}}&deg;C<br>
+                                    <strong>Weather:</strong>{{city_weather.description|title}}
+                                </p>
+                                {% if city_weather.icon %}
+                                    <img src="https://openweathermap.org/img/w/{{city_weather.icon}}.png" alt="Weather">
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
-                {% endfor %}
+                    {% endfor %}
+                    {% else %}
+                    <div class="alert alert-warning">
+                        <p>No Cities Added Yet. Add a city to see the weather</p>
+                    </div>
+                {% endif %}
             </div>
         </div>
     {% endblock %}
