@@ -44,6 +44,7 @@
                                 {% if city_weather.icon %}
                                     <img src="https://openweathermap.org/img/w/{{city_weather.icon}}.png" alt="Weather">
                                 {% endif %}
+                                <a href="{% url 'delete_city' city_weather.city%}" class="btn btn-sm btn-danger mt-2">Delete</a>
                             </div>
                         </div>
                     </div>
