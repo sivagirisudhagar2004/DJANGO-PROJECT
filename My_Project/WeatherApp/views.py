@@ -10,7 +10,7 @@ from urllib.error import URLError,HTTPError
 
 # Create your views here.
 def home(request):
-    url = 'https://api.openweathermap.org/data/2.5/weather?q={},&appid=24b26852121352634f05cd3f2e74b69b&units=metric'
+    url = 'https://api.openweathermap.org/data/2.5/weather?q={},&appid=&units=metric'
 
     if(request.method == "POST"):
 
