@@ -77,7 +77,7 @@ def home(request):
             messages.error(request,f"Error fetchin weather:{str(e)}")
 
     context = {'data':data,'form':form}
-    return render(request,"weatherapp.html",context)
+    return render(request,"weatherapp_1.html",context)
 
 from django.http import HttpResponse
 
